@@ -13,8 +13,9 @@ response = requests.get(request_url)  # obviously, a GET request, to which the A
 if response.status_code == 200:
     data = response.json() # we'll be getting json data object back
     weather = data['weather'][0]['description']
-    print(weather)
+    
     temperature = round(data["main"]["temp"] - 273.15, 2) # round it to the nearest two decimal places
-    print(temperature)
+    print("Weather: ", weather)
+    print("Temperature: ", temperature, "celsius")
 else:
     print("An error occurred.")
